@@ -64,12 +64,26 @@ class Education(BaseModel):
 class StructuredResumeModel(BaseModel):
     personal_data: PersonalData = Field(..., alias="Personal Data")
     experiences: List[Experience] = Field(..., alias="Experiences")
+    
+    # --- THIS IS THE FIRST CHANGE ---
+    # We add this new field to validate the AI's response.
+    # It re-uses the `Experience` model, which fits perfectly.
+    extracurricular_activities: List[Experience] = Field(
+        default_factory=list, alias="Extracurricular Activities"
+    )
+    # --- END FIRST CHANGE ---
+
     projects: List[Project] = Field(..., alias="Projects")
     skills: List[Skill] = Field(..., alias="Skills")
     research_work: List[ResearchWork] = Field(
         default_factory=list, alias="Research Work"
     )
-    achievements: List[str] = Field(default_factory=list, alias="Achievements")
+
+    # --- THIS IS THE SECOND CHANGE ---
+    # We update the alias to match the new prompt.
+    achievements: List[str] = Field(default_factory=list, alias="Honors and Awards")
+    # --- END SECOND CHANGE ---
+
     education: List[Education] = Field(default_factory=list, alias="Education")
     extracted_keywords: List[str] = Field(
         default_factory=list, alias="Extracted Keywords"

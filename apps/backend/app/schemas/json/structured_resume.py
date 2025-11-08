@@ -20,6 +20,20 @@ SCHEMA = {
             "technologiesUsed": ["string", "..."],
         }
     ],
+    # --- NEW SECTION ---
+    # We add this new field to specifically capture extracurriculars and volunteer work.
+    "Extracurricular Activities": [
+        {
+            "jobTitle": "string (e.g., 'Member', 'Volunteer', 'Trainer')",
+            "company": "string (e.g., 'AIESEC', 'Spark project')",
+            "location": "string",
+            "startDate": "YYYY-MM-DD",
+            "endDate": "YYYY-MM-DD or Present",
+            "description": ["string", "..."],
+            "technologiesUsed": ["string", "..."],
+        }
+    ],
+    # --- END NEW SECTION ---
     "Projects": [
         {
             "projectName": "string",
@@ -40,7 +54,10 @@ SCHEMA = {
             "description": "string | null",
         }
     ],
-    "Achievements": ["string", "..."],
+    # --- RENAMED SECTION ---
+    # Renamed to match your CV section and improve accuracy
+    "Honors and Awards": ["string", "..."],
+    # --- END RENAMED SECTION ---
     "Education": [
         {
             "institution": "string",

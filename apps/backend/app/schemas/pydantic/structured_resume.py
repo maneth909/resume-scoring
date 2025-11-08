@@ -53,7 +53,7 @@ class ResearchWork(BaseModel):
 
 class Education(BaseModel):
     institution: str
-    degree: str
+    degree: Optional[str] = None
     field_of_study: Optional[str] = Field(None, alias="fieldOfStudy")
     start_date: Optional[str] = Field(None, alias="startDate")
     end_date: Optional[str] = Field(None, alias="endDate")

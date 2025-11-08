@@ -44,7 +44,7 @@ SCHEMA = {
     "Education": [
         {
             "institution": "string",
-            "degree": "string",
+            "degree": "string | null",
             "fieldOfStudy": "string | null",
             "startDate": "YYYY-MM-DD",
             "endDate": "YYYY-MM-DD",
